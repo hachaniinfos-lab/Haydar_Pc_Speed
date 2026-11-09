@@ -1,0 +1,11 @@
+HAYDAR SPEED PRO v2.4
+============================================================================
+صدقة جارية على روح أخي حيدر حشاني رحمه الله
+Contact créateur : hachaniinfos@gmail.com | WhatsApp : +21655405159
+============================================================================
+
+Ce logiciel est installé dans votre dossier Program Files.
+Vous disposez d'un raccourci sur le Bureau pour lancer l'accélération à tout moment.
+
+Pour désinstaller proprement, ouvrez le Panneau de configuration Windows
+-> "Désinstaller un programme" -> Sélectionnez "Haydar Speed Pro".

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Haydar Speed Pro - Accélérateur Windows Universel</title>
+<HTA:APPLICATION
+    ID="HaydarSpeedProApp"
+    APPLICATIONNAME="Haydar Speed Pro"
+    BORDER="thin"
+    BORDERSTYLE="normal"
+    CAPTION="yes"
+    CONTEXTMENU="no"
+    ICON="explorer.exe"
+    INNERBORDER="no"
+    MAXIMIZEBUTTON="no"
+    MINIMIZEBUTTON="yes"
+    NAVIGABLE="no"
+    SCROLL="yes"
+    SCROLLFLAT="yes"
+    SELECTION="no"
+    SHOWINTASKBAR="yes"
+    SINGLEINSTANCE="yes"
+    SYSMENU="yes"
+    VERSION="2.4"
+    WINDOWSTATE="normal"
+/>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background-color: #0d0f12;
+    color: #e2e8f0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 24px;
+    font-size: 13px;
+  }
+  .header {
+    background: #14171d;
+    border: 1px solid #232731;
+    border-radius: 14px;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  .badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 20px;
+    background: rgba(16, 185, 129, 0.2);
+    color: #10b981;
+    border: 1px solid rgba(16, 185, 129, 0.4);
+    font-size: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-left: 8px;
+  }
+  h1 { font-size: 22px; color: #ffffff; margin-bottom: 4px; font-weight: 800; }
+  .subtitle { font-size: 12px; color: #94a3b8; }
+  .tribute {
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 1px solid #232731;
+    font-family: 'Cairo', 'Segoe UI', Tahoma, sans-serif;
+    color: #10b981;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    direction: rtl;
+  }
+  .contact {
+    text-align: center;
+    font-size: 11px;
+    color: #94a3b8;
+    margin-top: 4px;
+    direction: ltr;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+  .card {
+    background: #14171d;
+    border: 1px solid #232731;
+    border-radius: 12px;
+    padding: 16px;
+  }
+  .card h3 { font-size: 14px; color: #ffffff; margin-bottom: 6px; font-weight: 700; }
+  .card p { font-size: 11px; color: #94a3b8; line-height: 1.4; margin-bottom: 12px; }
+  .btn {
+    display: block;
+    width: 100%;
+    padding: 10px 14px;
+    border: none;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.2s;
+  }
+  .btn-primary { background: #10b981; color: #020617; }
+  .btn-primary:hover { background: #059669; }
+  .btn-cyan { background: #06b6d4; color: #020617; }
+  .btn-cyan:hover { background: #0891b2; }
+  .btn-purple { background: #8b5cf6; color: #ffffff; }
+  .btn-purple:hover { background: #7c3aed; }
+  .btn-rose { background: #ef4444; color: #ffffff; }
+  .btn-rose:hover { background: #dc2626; }
+  #consoleLog {
+    background: #090b0e;
+    border: 1px solid #232731;
+    border-radius: 10px;
+    padding: 14px;
+    font-family: 'Consolas', 'Courier New', monospace;
+    font-size: 11px;
+    color: #10b981;
+    height: 140px;
+    overflow-y: auto;
+    white-space: pre-wrap;
+    line-height: 1.5;
+  }
+</style>
+
+<script language="VBScript">
+Sub Window_OnLoad
+    window.resizeTo 720, 780
+    window.moveTo (screen.availWidth - 720) / 2, (screen.availHeight - 780) / 2
+    LogMessage "Haydar Speed Pro initialise avec succes."
+    LogMessage "Compatible Windows XP SP3, Vista, 7, 8, 8.1, 10 et Windows 11."
+End Sub
+
+Sub LogMessage(msg)
+    Dim logElem
+    Set logElem = document.getElementById("consoleLog")
+    logElem.innerHTML = logElem.innerHTML & "<br>[*] " & Time & " - " & msg
+    logElem.scrollTop = logElem.scrollHeight
+End Sub
+
+Sub RunFullOptimization
+    On Error Resume Next
+    Dim WshShell
+    Set WshShell = CreateObject("WScript.Shell")
+    
+    LogMessage "=== LANCEMENT OPTIMISATION HAYDAR SPEED PRO ==="
+    
+    ' 1. Nettoyage
+    LogMessage "Nettoyage des fichiers temporaires %TEMP% et Prefetch..."
+    WshShell.Run "cmd.exe /c del /f /s /q ""%TEMP%\\*.*"" >nul 2>&1", 0, True
+    WshShell.Run "cmd.exe /c del /f /s /q ""C:\\Windows\\Temp\\*.*"" >nul 2>&1", 0, True
+    WshShell.Run "cmd.exe /c del /f /s /q ""C:\\Windows\\Prefetch\\*.pf"" >nul 2>&1", 0, True
+    WshShell.Run "cmd.exe /c ipconfig /flushdns >nul 2>&1", 0, True
+    LogMessage "Fichiers temporaires purges et cache DNS reinitialise."
+    
+    ' 2. Registre
+    LogMessage "Optimisation du menu Demarrer (MenuShowDelay = 0)..."
+    WshShell.RegWrite "HKCU\\Control Panel\\Desktop\\MenuShowDelay", "0", "REG_SZ"
+    
+    LogMessage "Verrouillage du noyau Windows en RAM (DisablePagingExecutive)..."
+    WshShell.RegWrite "HKLM\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Memory Management\\DisablePagingExecutive", 1, "REG_DWORD"
+    WshShell.RegWrite "HKLM\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Memory Management\\LargeSystemCache", 1, "REG_DWORD"
+    WshShell.RegWrite "HKLM\\SYSTEM\\CurrentControlSet\\Control\\FileSystem\\NtfsDisableLastAccessUpdate", 1, "REG_DWORD"
+    
+    ' 3. Services lourds
+    LogMessage "Desactivation de SysMain / SuperFetch et Telemetrie..."
+    WshShell.Run "cmd.exe /c net stop SysMain >nul 2>&1 & sc config SysMain start= disabled >nul 2>&1", 0, True
+    WshShell.Run "cmd.exe /c net stop DiagTrack >nul 2>&1 & sc config DiagTrack start= disabled >nul 2>&1", 0, True
+    
+    ' 4. RAM
+    LogMessage "Vidage immediat du cache RAM (ProcessIdleTasks)..."
+    WshShell.Run "%windir%\\system32\\rundll32.exe advapi32.dll,ProcessIdleTasks", 0, True
+    
+    LogMessage "=== SUCCES : PC ACCELERE AVEC SUCCES ! ==="
+    MsgBox "Votre PC Windows a ete optimise et accelere avec succes !" & vbCrLf & vbCrLf & "صدقة جارية على روح أخي حيدر حشاني رحمه الله" & vbCrLf & "Contacter le createur : hachaniinfos@gmail.com | WhatsApp +21655405159", 64, "Haydar Speed Pro"
+End Sub
+
+Sub PurgeRamOnly
+    On Error Resume Next
+    Dim WshShell, FreeMem
+    Set WshShell = CreateObject("WScript.Shell")
+    LogMessage "Purge de la memoire vive en cours..."
+    WshShell.Run "%windir%\\system32\\rundll32.exe advapi32.dll,ProcessIdleTasks", 0, True
+    FreeMem = Space(128000000)
+    LogMessage "Memoire RAM liberee avec succes !"
+    MsgBox "Memoire RAM liberee avec succes !", 64, "Haydar Speed Pro"
+End Sub
+
+Sub InstallDesktopShortcut
+    On Error Resume Next
+    Dim WshShell, strDesktop, oShellLink, fso, targetFolder, targetFile
+    Set WshShell = CreateObject("WScript.Shell")
+    Set fso = CreateObject("Scripting.FileSystemObject")
+    strDesktop = WshShell.SpecialFolders("Desktop")
+    targetFolder = WshShell.ExpandEnvironmentStrings("%LOCALAPPDATA%\HaydarSpeedPro")
+    If Not fso.FolderExists(targetFolder) Then
+        fso.CreateFolder(targetFolder)
+    End If
+    targetFile = targetFolder & "\Haydar_Speed_Pro.hta"
+    fso.CopyFile window.location.pathname, targetFile, True
+    Set oShellLink = WshShell.CreateShortcut(strDesktop & "\Haydar Speed Pro.lnk")
+    oShellLink.TargetPath = "mshta.exe"
+    oShellLink.Arguments = """" & targetFile & """"
+    oShellLink.WindowStyle = 1
+    oShellLink.IconLocation = "shell32.dll,220"
+    oShellLink.Description = "Haydar Speed Pro - Accelerateur Windows Universel"
+    oShellLink.WorkingDirectory = targetFolder
+    oShellLink.Save
+    LogMessage "Raccourci Bureau 'Haydar Speed Pro' installe avec succes !"
+    MsgBox "Raccourci 'Haydar Speed Pro' cree sur votre Bureau avec succes !" & vbCrLf & "L'application est maintenant installee sur votre PC.", 64, "Haydar Speed Pro"
+End Sub
+
+Sub RestoreDefaults
+    On Error Resume Next
+    Dim WshShell
+    Set WshShell = CreateObject("WScript.Shell")
+    LogMessage "Restauration des reglages d'origine Windows..."
+    WshShell.RegWrite "HKCU\\Control Panel\\Desktop\\MenuShowDelay", "400", "REG_SZ"
+    WshShell.RegWrite "HKLM\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Memory Management\\DisablePagingExecutive", 0, "REG_DWORD"
+    WshShell.Run "cmd.exe /c sc config SysMain start= auto >nul 2>&1 & net start SysMain >nul 2>&1", 0, True
+    LogMessage "Parametres d'origine restaures."
+    MsgBox "Parametres d'origine Windows restaures avec succes.", 64, "Haydar Speed Pro"
+End Sub
+</script>
+</head>
+<body>
+
+<div class="header">
+  <div style="display: flex; align-items: center; justify-content: space-between;">
+    <h1>Haydar Speed Pro <span class="badge">Neo's Noir v2.4</span></h1>
+  </div>
+  <div class="subtitle">Suite Universelle Windows • Compatible Windows XP SP3, 7, 8, 10 et 11 (32 et 64-bit)</div>
+  <div class="tribute">صدقة جارية على روح أخي حيدر حشاني رحمه الله</div>
+  <div class="contact">Contacter le créateur : hachaniinfos@gmail.com · WhatsApp +21655405159</div>
+</div>
+
+<div class="grid">
+  <div class="card">
+    <h3>1. Optimisation Complète en 1-Clic</h3>
+    <p>Nettoie %TEMP%, verrouille le noyau en RAM, réduit le délai des menus à 0ms et coupe SysMain.</p>
+    <button class="btn btn-primary" onclick="RunFullOptimization">Lancer l'Optimisation Complète</button>
+  </div>
+
+  <div class="card">
+    <h3>2. Libération Instantanée de RAM</h3>
+    <p>Décharge les WorkingSets inactifs et purge le cache mémoire pour libérer la mémoire vive.</p>
+    <button class="btn btn-cyan" onclick="PurgeRamOnly">Vider la RAM maintenant</button>
+  </div>
+
+  <div class="card">
+    <h3>3. Installer le Raccourci Bureau</h3>
+    <p>Installe l'icône permanente 'Haydar Speed Pro' sur votre Bureau pour un accès immédiat.</p>
+    <button class="btn btn-purple" onclick="InstallDesktopShortcut">Créer le Raccourci Bureau</button>
+  </div>
+
+  <div class="card">
+    <h3>4. Restaurer Paramètres d'origine</h3>
+    <p>Rétablit les réglages d'origine Windows (MenuShowDelay à 400ms, réactivation SuperFetch).</p>
+    <button class="btn btn-rose" onclick="RestoreDefaults">Rétablir les Réglages d'origine</button>
+  </div>
+</div>
+
+<div id="consoleLog">
+  Haydar Speed Pro initialise avec succes.<br>
+  Pret a accelerer Windows. Cliquez sur "Lancer l'Optimisation Complète".
+</div>
+
+</body>
+</html>

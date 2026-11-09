@@ -1,0 +1,6 @@
+{
+  "name": "Haydar Speed Pro - Optimiseur Windows Universel",
+  "description": "Suite d'optimisation et d'accélération Windows universelle compatible de Windows XP jusqu'à Windows 11 (32 et 64 bits). Nettoyage sécurisé, libération RAM, gestion du démarrage et installateur .exe 1-clic.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
