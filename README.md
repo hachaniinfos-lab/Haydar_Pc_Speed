@@ -1,6 +1,7 @@
-============================================================================
-HAYDAR SPEED PRO - SUITE D'OPTIMISATION WINDOWS UNIVERSELLE (XP A WINDOWS 11)
-============================================================================
+========================================================================================
+HAYDAR SPEED PRO 
+SUITE D'OPTIMISATION WINDOWS UNIVERSELLE(XP A WINDOWS 11)
+========================================================================================
 
 100% GRATUIT · SANS LICENCE · SANS ABONNEMENT · ZERO PUBLICITE
 Compatible :
