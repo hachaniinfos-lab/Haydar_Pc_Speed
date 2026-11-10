@@ -1,0 +1,50 @@
+============================================================================
+HAYDAR SPEED PRO - SUITE D'OPTIMISATION WINDOWS UNIVERSELLE (XP A WINDOWS 11)
+============================================================================
+
+100% GRATUIT · SANS LICENCE · SANS ABONNEMENT · ZERO PUBLICITE
+Compatible :
+ - Windows XP (SP1, SP2, SP3) 32-bit & 64-bit
+ - Windows Vista (32-bit & 64-bit)
+ - Windows 7 / 8 / 8.1 (32-bit & 64-bit)
+ - Windows 10 & Windows 11 (32-bit & 64-bit)
+ - Conçu spécialement pour accélérer et redonner vie aux PC anciens et modernes.
+----------------------------------------------------------------------------
+DEDICACE :
+                                                                                                                                                                                            صدقة جارية على روح أخي حيدر حشاني رحمه الله
+Contacter le createur : hachaniinfos@gmail.com · WhatsApp +21655405159
+----------------------------------------------------------------------------
+FONCTIONS INCLUSES :
+- Moteur d'Acceleration Ai : Priorite CPU Win32PrioritySeparation & Timer 1.0 ms
+- Nettoyage securise (%TEMP%, Prefetch, Corbeille, Logs)
+- Forcage du noyau Windows en memoire vive (DisablePagingExecutive)
+- Desactivation du Superfetch/SysMain bloquant les disques a 100%
+- Desactivation des telemetries DiagTrack et rapports d'erreurs WerSvc
+- Optimisation du debit reseau et serveurs DNS Cloudflare / Google rapides
+- Vidage instantane du cache RAM
+________________________________________________
+
+CONTENU DU PACK :
+1. Lancer_Haydar_Speed_Pro.bat  : Lanceur intelligent (ouvre l'application directement dans une fenetre dediee)
+2. Haydar_Speed_Pro.hta         : Application graphique native avec les 10 modules et jauges en direct
+3. Haydar_Speed_Pro_Setup.iss   : Script Inno Setup pret pour generer votre installateur .EXE officiel
+4. Lancer_Optimisation_1Clic.bat: Script rapide avec elevation automatique Administrateur
+5. Haydar_Speed_Pro.bat         : Script maitre complet d'acceleration systeme
+6. Liberer_RAM.vbs              : Purgeur de memoire vive (EmptyWorkingSet & ProcessIdleTasks)
+7. Restaurer_Defaut.bat         : Restauration des parametres d'origine de Windows
+
+COMMENT LANCER L'APPLICATION :
+------------------------------
+Methode 1 (Recommandee) :
+ - Double-cliquez sur "Lancer_Haydar_Speed_Pro.bat"
+ - L'application s'ouvrira directement dans sa fenetre haute resolution !
+
+Methode 2 (Directe) :
+ - Double-cliquez sur "Haydar_Speed_Pro.hta"
+
+Methode 3 (Compiler votre vrai installateur .EXE) :
+ - Vous avez l'icone "Inno Setup Compiler" sur votre bureau
+ - Ouvrez "Haydar_Speed_Pro_Setup.iss" et appuyez sur F9 (Build -> Compile)
+ - Votre installateur "Haydar_Speed_Pro_Setup.exe" officiel sera cree en 3 secondes !
+
+
