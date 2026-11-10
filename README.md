@@ -10,8 +10,6 @@ Compatible :
  - Windows 10 & Windows 11 (32-bit & 64-bit)
  - Conçu spécialement pour accélérer et redonner vie aux PC anciens et modernes.
 ----------------------------------------------------------------------------
-DEDICACE :
-                                                                                                                                                                                            صدقة جارية على روح أخي حيدر حشاني رحمه الله
 Contacter le createur : hachaniinfos@gmail.com · WhatsApp +21655405159
 ----------------------------------------------------------------------------
 FONCTIONS INCLUSES :
